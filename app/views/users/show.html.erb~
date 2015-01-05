@@ -1,0 +1,22 @@
+<%= @user.email %>
+<% if current_user != @user %>
+	<% if current_user.followeds.exists? @user %>
+		<% form_for current_user, :url => {:action => follow} do |f|%>
+  		<%= f.submit "Submit" %>
+		<% end %>
+	<% else %>
+		<pr> follow </pr>
+	<% end %>
+<% end %>
+<ul>
+	<% @posts.each do |post| %>
+			
+			
+			<li>			
+          <%= post.content %>
+					<% if can? :destroy, post %>
+						<%= link_to "delete" , post_path(post.id), :method => "delete" %>
+					<% end %>
+      </li>
+   <% end %>
+</ul>

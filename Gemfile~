@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
 gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
@@ -22,6 +24,13 @@ end
 
 gem 'jquery-rails'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem 'capybara'
+  gem 'simplecov'
+  gem 'faker'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

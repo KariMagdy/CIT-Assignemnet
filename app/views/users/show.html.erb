@@ -1,0 +1,14 @@
+<%= @user.email %>
+
+<ul>
+	<% @posts.each do |post| %>
+			
+			
+			<li>			
+          <%= post.content %>
+					<% if can? :destroy, post %>
+						<%= link_to "delete" , post_path(post.id), :method => "delete" %>
+					<% end %>
+      </li>
+   <% end %>
+</ul>
