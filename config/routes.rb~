@@ -1,14 +1,21 @@
 Twitter::Application.routes.draw do
 
-  get "posts/destroy"
-
-  get "posts/create"
-
   devise_for :users
   
+  #get "relationships/create"
+
+  #get "relationships/new"
+
+  #get "relationships/destroy"
+
+  #get "posts/destroy"
+
+  #get "posts/create"
+	
+	
   resources :users , :only => [:show , :index]
   resources :posts 
-  
+  resources :relationships
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

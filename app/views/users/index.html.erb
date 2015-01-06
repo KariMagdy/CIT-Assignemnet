@@ -1,14 +1,8 @@
 <ul>
 	<% @users.each do |user| %>
 			<li>
-          <%= user.email %>
-          <%if current_user != user && ! Relationship.find_all_by_follower_id(current_user.id,:select => "followed_id").include?(user.id)%>
-          	<%= form_for (Relationship.new) do |f| %>
-							<%= f.hidden_field :followed_id , { :value => user.id } %>
-							<%= f.hidden_field :follower_id , { :value => current_user.id } %>
-							<%= f.submit "Follow"%>
-						<% end %>
-          <%end%>
+				<td><%= user.id %></td>
+		    <td><%=link_to user.email,user_path(:id=>user.id) %> </td> 
       </li>
    <% end %>
 </ul>
