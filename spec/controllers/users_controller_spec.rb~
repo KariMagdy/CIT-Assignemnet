@@ -1,0 +1,22 @@
+require 'rails_helper'
+
+RSpec.describe UsersController, :type => :controller do
+
+  #describe "GET show" do
+   # it "returns http success" do
+   #  get :show
+    #  expect(response).to have_http_status(:success)
+    #end
+  #end
+	before :each do 
+		@user = FactoryGirl.create :user, :email => "example@example.com", :password=>"00000000"
+		sign_in @user
+	end
+	
+	it "follow should add new followed" do
+		@followed = FactoryGirl.create :user, :email => "followed@example.com", :password=>"00000000"
+		follow :post, :user_id => @user.id, :followed_id => @followed.id
+		expect(response).to be_success
+	end
+	
+end

@@ -32,7 +32,8 @@ RSpec.describe PostsController, :type => :controller do
 	end
 	
 	it "author can distroy" do
-		post = FactoryGirl.create(:post, :content => "example post" ,:user_id => @user.id)
+		@author = FactoryGirl.create :user, :email => "author@example.com", :password=>"00000000"
+		post = FactoryGirl.create(:post, :content => "example post" ,:user_id => @author.id)
 		delete :destroy, :user_id => @user.id, :id => post.id
 		expect(response).to_not be_success
 	end
