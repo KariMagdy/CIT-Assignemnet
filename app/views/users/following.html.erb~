@@ -1,4 +1,8 @@
 <h1>following</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% if flash[:notice] %>
+<div id="notice"><%= flash[:notice] %></div>
+<% end %>
 
 <table>
 <% @following_users.each do |user| %>

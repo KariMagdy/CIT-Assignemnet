@@ -2,18 +2,23 @@ Twitter::Application.routes.draw do
 
   devise_for :users
   
-  get "relationships/create"
+  #get "relationships/create"
 
-  get "relationships/new"
+  #get "relationships/new"
 
-  get "relationships/destroy"
+  #get "relationships/destroy"
+
 
   #get "posts/destroy"
 
   #get "posts/create"
 	
 	
-  resources :users , :only => [:show , :index]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :posts 
   resources :relationships
 

@@ -1,4 +1,6 @@
-<%= @user.email %>
+<h2> User : <%= @user.email %> </h2>
+
+</br>
 
 <%if current_user != @user%>
 	<% if current_user.following?(@user) %>
@@ -15,8 +17,11 @@
 
 <% end %>
 
+<h4>Following: <%=link_to(@following.count,following_user_path)%></h3>
+<h4>Followers: <%=link_to(@followers.count,followers_user_path)%></h3>
 
-
+</br>
+<h3>Posts</h3>
 <ul>
 	<% @posts.each do |post| %>	
 			<li>			

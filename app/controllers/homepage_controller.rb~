@@ -1,6 +1,13 @@
 class HomepageController < ApplicationController
+	before_filter(:authenticate_user!)
   def home
-  	@user = current_user
-  	@post = Post.find_all_by_user_id(current_user)
+  	@user = current_user  	
+  	@posts = []
+  	@posts << @user.posts
+  	current_user.followeds.each do |followed|
+  		followed.posts.each do |post|
+  			@posts.push post
+  		end
+  	end
   end
 end

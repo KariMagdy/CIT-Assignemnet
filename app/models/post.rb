@@ -4,4 +4,6 @@ class Post < ActiveRecord::Base
   
   default_scope order: 'posts.created_at DESC'
   validates :user , :content , :presence=> true
+
+  
 end
